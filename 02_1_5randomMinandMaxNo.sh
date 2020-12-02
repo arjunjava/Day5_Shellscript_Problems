@@ -1,45 +1,62 @@
-#!/bin/bash
+#!/bin/bash -x
+number1=${RANDOM:0:3}
+number2=${RANDOM:0:3}
+number3=${RANDOM:0:3}
+number4=${RANDOM:0:3}
+number5=${RANDOM:0:3}
+min=999
+max=0
 
-n1=$(( 100 + $RANDOM%100 ))
-n2=$(( 100 + $RANDOM%100 ))
-n3=$(( 100 + $RANDOM%100 ))
-n4=$(( 100 + $RANDOM%100 ))
-n5=$(( 100 + $RANDOM%100 ))
-echo $n1
-echo $n2
-echo $n3
-echo $n4
-echo $n5
-
-if [ $n1 -gt $n2 ] && [ $n1 -gt $n3 ] && [ $n1 -gt $n4 ] && [ $n1 -gt $n5 ]
+#finding minimum value
+if [ $min -gt $number1 ]
 then
-	max=$n1
-if [ $n2 -gt $n1 ] && [ $n2 -gt $n3 ] && [ $n2 -gt $n4 ] && [ $n2 -gt $n5 ]
-then
-	max=$n2
-if [ $n3 -gt $n1 ] && [ $n3 -gt $n2 ] && [ $n3 -gt $n4 ] && [ $n3 -gt $n5 ]
-then
-	max=$n3
-if [ $n4 -gt $n1 ] && [ $n4 -gt $n2 ] && [ $n4 -gt $n3 ] && [ $n4 -gt $n5 ]
-then
-	max=$n4
-else
-	max=$n5
+        min=$number1
 fi
-	echo "maximum is:" $max
-
-if [ $n1 -lt $n2 ] && [ $n1 -lt $n3 ] && [ $n1 -lt $n4 ] && [ $n1 -lt $n5 ]
+if [ $min -gt $number2 ]
 then
-	min=$n1
-if [ $n2 -lt $n1 ] && [ $n2 -lt $n3 ] && [ $n2 -lt $n4 ] && [ $n2 -lt $n5 ]
-then
-        min=$n2
-if [ $n3 -lt $n1 ] && [ $n3 -lt $n2 ] && [ $n3 -lt $n4 ] && [ $n3 -lt $n5 ]
-then
-        min=$n3
-if [ $n4 -lt $n1 ] && [ $n4 -lt $n2 ] && [ $n4 -lt $n3 ] && [ $n4 -lt $n5 ]
-then
-        min=$n4
-else
-	min=$n5
+        min=$number2
 fi
+
+if [ $min -gt $number3 ]
+then
+        min=$number3
+fi
+
+if [ $min -gt $number4 ]
+then
+        min=$number4
+fi
+
+if [ $min -gt $number5 ]
+then
+        min=$number5
+fi
+
+#finding maximum value
+
+if [ $max -lt $number1 ]
+then
+        max=$number1
+fi
+if [ $max -lt $number2 ]
+then
+        max=$number2
+fi
+
+if [ $max -lt $number3 ]
+then
+        max=$number3
+fi
+
+if [ $max -lt $number4 ]
+then
+        max=$number4
+fi
+
+if [ $max -lt $number5 ]
+then
+        max=$number5
+fi
+echo "minimum value is $min"
+
+echo "maximum value is $max"
