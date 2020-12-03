@@ -1,21 +1,31 @@
-#!/bin/bash -x
-read -p "Enter (1: Feet to Inch),(2: Inch to Feet),(3: Feet to Meter),(4: Meter to Feet)" number
-read -p "Enter number" num
-case $number in
+#!/bin/bash
+
+read -p "Enter Your Choice: " n
+
+case $n in
 	1)
-		res=$(($num * 12))
-		echo "$num Feet = $res Inch"
-		;;
+		read -p "Enter Feet : " feet
+                inch= awk 'BEGIN{ printf("%0.4f",'$feet' *12)}'
+                echo " Inch"
+                ;;
+
 	2)
-		res1=$(($num / 12))
-		echo "$num Inch = $res1 Feet"
-		;;
+		read -p "Enter Inch : " inch
+                feet= awk 'BEGIN{ printf("%0.4f",'$inch' /12)}'
+                echo " Feet"
+                ;;
+
 	3)
-		res3=$(($num * 0.30))
-		echo "$num Feet = $res3 Meter"
-		;;
+		read -p "Enter Feet : " feet
+                meter= awk 'BEGIN{ printf("%0.4f",'$feet' *0.30)}'
+                echo " Meter"
+                ;;
+
 	4)
-		res4=$(($num * 3.28))
-		echo "$num Meter = $res4 Feet"
+		read -p "Enter Meter : " meter
+		feet= awk 'BEGIN{ printf("%0.4f",'$meter' *3.28)}'
+		echo " Feet"
 		;;
+	*)
+		echo "INVALID CHOICE";;
 esac
