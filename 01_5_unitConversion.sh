@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 echo -ne "1.Inch to Feet. \n2.Area of Rectangular Plot and Area of 25 Rectangular Plot. \nEnter The Your Choice: "
 
@@ -18,6 +18,7 @@ case $num in
         react_area=$(($width * $height))
         echo "Area of Rectangular plot is $react_area ft "
 	plot=$(( $react_area * 25 ))
+	#plot= awk 'BEGIN{ printf("%0.4f",'$react_area' *25)}'
 	echo "Area of 25 Plot of Dimension $width Feet * $height Feet is $plot ft "
         ;;
 
